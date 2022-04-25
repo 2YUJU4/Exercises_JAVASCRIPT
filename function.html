@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수</title>
+</head>
+<body>
+    <script>
+        /*
+        function 함수명(매개변수){
+            //처리할 코드
+            //만약 리턴값이 있다면
+            return 리턴값;
+        }
+        */
+       
+       
+        function plus(num1, num2){
+           return num1 + num2;
+       }
+       let rs = plus(5,10);
+       console.log(rs);
+       /*
+       자바 스크립트의 함수는 마치 값처럼 사용하는게 가능
+       일급함수, first class function
+       plus라고 하는 함수의 주소값을 temp 변수에 담아주는 작업
+       temp를 부르면 plus 함수를 부르는 것과 같은 상황
+       */
+       let temp = plus;
+       console.log(temp);
+       console.log(temp(5,10));
+
+
+       // 익명 함수(이름이 없는 함수)를 생성해서 변수에 담는것도 가능
+       let temp2 = function(a,b){
+           return a+b;
+       }
+    //    console.log(temp2);
+    //    console.log(temp2(5,10));
+
+       function printAll(msg){
+           function printMsg(){
+               console.log(msg);
+           }
+           return printMsg;
+       }
+       
+       //함수를 호출하면 호출한 자리로 그래도 리턴값이 돌아옴.
+       //함수 안에 함수를 생성하고 그 안에서 함수를 반환만 하는것.
+       
+       //printMsg 함수의 주소값을 부르는 상황
+       //let temp3 = printAll("Hello Javascript Function!"); 
+       
+       //printMsg 함수를 호출하는 상황
+       //temp3();
+
+       //리턴값이 없는 함수의 리턴값을 출력하는 상황 -> undefined
+       //console.log(temp3());
+
+
+       //매개변수로 함수를 넘기는 상황
+       function func(f){
+           return f(5,10);
+       }
+
+       function add(a,b){
+           return a + b;
+       }
+
+       function minus(a, b){
+           return b - a;
+       }
+
+       console.log(func(add));
+       console.log(func(minus));
+
+
+
+    </script>
+    
+</body>
+</html>
