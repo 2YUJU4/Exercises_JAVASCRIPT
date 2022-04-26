@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>덧셈 계산기</title>
+    <style>
+        .wrapper{
+            border: 1px solid black ;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+    <div class="row"><h2>덧셈 계산기</h2></div>
+    <div class="row">
+        <div class="col">
+            <input type="text" id="evtInput1">
+        </div>
+        <div class="col">
+            <input type="text" id="evtInput2">
+        </div>
+    </div>
+    <div class="row">
+        <button type="button" id="evtBtn">더하기</button>
+    </div>
+    <div class="row"><h2>결과</h2></div>
+    <div class="row"><p id="sum"></p></div>
+</div>   
+    <script>
+        
+        let evtBtn = document.getElementById("evtBtn");
+
+    
+         evtBtn.onclick = function(){
+            
+            let evtInput1 = document.getElementById("evtInput1").value;
+            let evtInput2 = document.getElementById("evtInput2").value;
+            // 요소.value -> String값 -> evtInput1 + evtInput2 = 문자열의 연결
+
+            //숫자형으로 변환
+            //1. parseInt()
+            let sum = parseInt(evtInput1) + parseInt(evtInput2);
+            document.getElementById("sum").innerHTML=sum;
+
+         }
+
+            //2.Number() 의 생성자
+            //num evtInput1 = document.getElementById("evtInput1").value;
+           // num evtInput2 = document.getElementById("evtInput2").value;
+    </script>
+
+</body>
+</html>

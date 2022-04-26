@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Image Change</h2>
+    <div id="photoBox" class="row" style="border: 1px solid black;" >
+        <img id="photo" src="/exam/event_exam/photo03.png">
+        
+    </div>
+    <div class="row">
+        <button id="btn1">사진1</button>
+        <button id="btn2">사진2</button>
+        <button id="btn3">사진3</button>
+    </div>
+    <script>
+        
+        let btn1 = document.getElementById("btn1");
+        let btn2 = document.getElementById("btn2");
+        let btn3 = document.getElementById("btn3");
+        let photo =  document.getElementById("photo");
+
+        // btn1.addEventListener("click",function(){
+        // let photoBox = document.getElementById("photoBox");
+        
+        // photoBox.innerHTML="<img id='photo1' src='/exam/event_exam/photo03.png'>";
+
+        // });
+        // btn2.addEventListener("click",function(){
+        // let photoBox = document.getElementById("photoBox");
+        
+        // photoBox.innerHTML="<img src='/exam/event_exam/photo04.png'>";
+
+        // });
+        // btn3.addEventListener("click",function(){
+        // let photoBox = document.getElementById("photoBox");
+        
+        // photoBox.innerHTML="<img src='/exam/event_exam/photo05.png'>";
+
+        // });
+        
+        btn1.onclick = function(){
+            photo.src = "/exam/event_exam/photo03.png";
+        }
+        btn2.onclick = function(){
+            photo.src = "/exam/event_exam/photo04.png";
+        }
+        btn3.onclick = function(){
+            photo.src = "/exam/event_exam/photo05.png";
+        }
+
+    </script>
+</body>
+</html>

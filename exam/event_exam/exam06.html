@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover</title>
+</head>
+<body>
+    <h2>Hover event</h2>
+    <div id="Box" style="width: 200px; height: 200px; background-color: aquamarine;"></div>
+    
+    <script>
+        let Box = document.getElementById("Box");
+
+        //mouseenter : 요소에 마우스가 올라갔을 때의 순간만 감지
+        Box.addEventListener("mouseenter",function(){ //마우스 오버
+            Box.style.backgroundColor = "pink";
+        });
+        Box.addEventListener("mouseleave",function(){ //마우스 아웃
+            Box.style.backgroundColor = "aquamarine";
+        })
+
+    </script>
+</body>
+</html>

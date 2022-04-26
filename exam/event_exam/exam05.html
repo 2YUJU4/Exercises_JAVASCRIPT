@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비밀번호 유효성</title>
+    <style>
+        .wrapper{
+            border: 1px solid black ;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="row"><h2>비밀번호 유효성 검사</h2></div>
+        <div class="row">
+            <div class="col">
+                <input type="password" id="pw1">
+            </div>
+            <div class="col">
+                <input type="password" id="pw2">
+            </div>
+        </div>
+        <div class="row">
+            <button type="button" id="evtBtn">확인</button>
+        </div>
+        <div class="row"><h2>결과</h2></div>
+        <div class="row"><p id="rsDiv"></p></div>
+    
+        <script>
+            let pw1 = document.getElementById("pw1");
+            let pw2 = document.getElementById("pw2");
+            let evtBtn = document.getElementById("evtBtn");
+            let rsDiv = document.getElementById("rsDiv");
+
+           
+
+            evtBtn.addEventListener("click", function(){
+                
+                let num1 = pw1.value;
+                let num2 = pw2.value;
+                //pw1과 pw2의 value값이 동일한지 아닌지에 따라 결과값을 달리해줌
+
+                // == : 값 자체만 가지고 equal 비교 -> null / undefined 비교
+                // === : 값 + 자료형을 모두 equal 비교 (strict equal)
+
+
+                if(num1 === num2){ //패스워드 일치
+
+                    rsDiv.innerHTML = "<p style='color:green'>패스워드 일치</p>";
+
+                 }else{ //패스워드 불일치
+
+                     rsDiv.innerHTML= "<p style='color:red'>패스워드 불일치</p>";                
+                 }
+            })
+
+           
+
+        </script>
+
+</body>
+</html>

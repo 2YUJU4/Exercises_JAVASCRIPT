@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #mouseChaser{ /* 아무런값 설정 해주지 않으면 position : static */
+            position:absolute;
+            top: 0;
+            left: 0; /*페이지 상단에 딱 붙도록 top과 left값 0으로 */
+            width: 50px;
+            height: 50px;
+            background-color: dodgerblue;
+            border-radius: 50%;
+            transform : translate(-50%,-50%);
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="mouseChaser"></div>
+
+    <script>
+        let mouseChaser = document.getElementById("mouseChaser")
+
+        document.onmousemove = function(e){
+            //console.log(e); 
+            // e -> pageX , pageY  = 마우스 커서의 위치값
+            //console.log("x : " + e.pageX);
+            //console.log("y : " + e.pageY);
+
+            mouseChaser.style.display = "block";
+            mouseChaser.style.top = e.pageY + "px";
+            mouseChaser.style.left = e.pageX + "px";
+
+        } 
+
+        document.onmouseleave = function(e){
+            mouseChaser.style.display = "none"; //dicplay의 기본적인 속성값
+        }
+
+    </script>
+</body>
+</html>
