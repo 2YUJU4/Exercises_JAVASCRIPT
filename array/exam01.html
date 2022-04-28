@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>과일바구니</title>
+</head>
+<body>
+    <div style="border: 1px solid black; height: 40px;" id="bucket"> </div>
+    <div>
+        <input type="text" id="frontAdd" placeholder="앞에 추가할 값">
+        <button type="button" id="frontAddBtn">앞쪽에 추가</button>
+        <button type="button" id="frontDeleteBtn">앞에서 삭제</button>
+    </div>
+    <div>
+        <input type="text" id="endAdd" placeholder="뒤에 추가할값">
+        <button type="button" id="endAddBtn">뒤쪽에 추가</button>
+        <button type="button" id="endDeleteBtn">뒤에서 삭제</button>
+    </div>
+    
+</body>
+    <script>
+        let bucket = document.getElementById("bucket");
+        let frontAdd = document.getElementById("frontAdd");
+        let frontAddBtn = document.getElementById("frontAddBtn");
+        let frontDeleteBtn = document.getElementById("frontDeleteBtn");
+        
+        let endAdd = document.getElementById("endAdd");
+        let endAddBtn = document.getElementById("endAddBtn");
+        let endDeleteBtn = document.getElementById("endDeleteBtn");
+
+        
+        let fruits = [];
+        
+        
+        frontAddBtn.addEventListener("click",function(){
+            let inputFront = frontAdd.value;
+            fruits.unshift(inputFront);
+            console.log(fruits);
+            bucket.innerHTML =fruits;
+            frontAdd.value = "";
+        });        
+        frontDeleteBtn.addEventListener("click",function(){
+            let inputFront = frontAdd.value;
+            fruits.shift(inputFront);
+            console.log(fruits);
+            bucket.innerHTML =fruits;
+        }); 
+        endAddBtn.addEventListener("click",function(){
+            let inputEnd = endAdd.value;
+            fruits.push(inputEnd);
+            bucket.innerHTML =fruits;
+            endAdd.value = "";
+        });
+        endDeleteBtn.addEventListener("click",function(){
+            let inputEnd = endAdd.value;
+            fruits.pop(inputEnd);
+            bucket.innerHTML =fruits;
+
+        });
+
+    </script>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Object</title>
+</head>
+<body>
+    <script>
+        /*
+        자바 스크립트에서의 Object
+        -> 속성의 집합 : 
+        -> property(속성) = 자바에서의 멤버필드
+        -> key, value의 형태 
+        = 자바에서의 멤버필드명이 key , 멤버필드에 셋팅된 값이 value 
+        eg. 이름 : tom / 나이 : 20
+        
+        */
+       /*
+        let testArr = new Array(1,2,3);
+        console.log(testArr);
+        console.log(Array.prototype);
+        console.log(String.prototype);
+        */
+
+        /*
+            객체 생성 / 사용법
+            1. 객체 생성자
+            2. 생성자 함수
+            3. 객체 리터럴
+
+            {속성명(key) : "값"(value),속성명:"값",.....}
+        */
+       //1. 객체 생성자 //id, pw속성값 부여
+        /*
+        let member =  new Object;
+        console.log("전 : ", member);
+
+        member.id = "abc123";
+        member.pw = "1234";
+
+        console.log("후 : ", member);
+
+        //key값이 중복되게 되면 가장 마지막에 셋팅해준 값이 최종값이됨.
+        member.id = "eee555";
+        console.log("id 변경 후 : ", member);
+
+        console.log(member.id);
+        console.log(member.pw);
+      */
+
+        //2. 생성자 함수 -> 일반함수와 구분하기 위해 함수명을 대문자로 시작
+        /*
+        let Member = function(id,pw){
+            this.id = id;
+            this.pw = pw;
+        }
+        let member2 = new Member("abc123","1234");
+        console.log(member2);
+        */
+
+        //3. 객체리터럴
+        /*
+        let member = {
+            id : "abc123",
+            pw : "1234"
+        }
+        console.log(member);
+        */
+
+        //생성자 내부에서 가능한 작업
+/*
+        let Member = function(id,pw){
+            this.id = id;
+            this.pw = pw;
+            let age = 20;
+        }
+        
+        let member1 = new Member("abc123","1234");
+        //id라는 key에 해당하는 값 가져오기
+        console.log(member1.id);
+
+        //["키 이름"]
+        console.log(member1["id"]);
+        
+        //생성자 내부의 age 변수값 가져오기
+        console.log(member1.age); //undefined 
+        //-> 생성자 내부에서 선언한 일반 변수는 private 속성, 외부에서 접근이 불가
+*/
+/*
+        let Member = function(id,pw){
+            this.id = id;
+            this.pw = pw;
+            let age = 20;
+
+            //속성에 함수 넣어주기
+            this.getAge = function(){
+                console.log(age);
+            }
+
+        }
+        
+        let member = new Member("abc123","1234");
+        console.log(member);
+        // console.log(member.getAge);  주소값 : ƒ (){ console.log(age);}
+        member.getAge(); //20
+        console.log(member.getAge());// undefined : 리턴값 없기때문에 
+*/
+        //리터벌 방식으로 속성에 함수값 넣기
+/*
+        let member = {
+            id : "abc123"
+           ,pw : "1234"
+           ,getAge : function(){
+               console.log(20);
+           }
+           ,cart : ["Mango","Apple"] //속성에 배열을 값으로 넣는것도 가능
+        }
+        member.getAge();
+        console.log(member.cart);
+
+        //Mango 값만 가져오기
+        console.log(member.cart[0]);
+
+        //새로운 속성 부여
+        member.nickname = "ABC초콜릿";
+        console.log(member);
+*/
+/*
+        let member = {
+            id : "abc123"
+           ,pw : "1234"
+           ,getAge(){ //function을 생략하는 것도 가능~!
+               console.log(20);
+           }
+        }
+        member.getAge();
+*/
+        let cafe = {
+            menu : {
+                "drink-alcohol" : ["beer","soju"] //key값에 공백, 특수문자가 포함돼있다면 ""으로 묶어줌.
+                ,"drink-coffee" : ["americano","latte"]
+                ,desert : ["cake","cookie"]
+            },
+            employee : [
+                function(){
+                    return {name : 'Tom', phone : '010-4444-1111'}
+                },
+                {name : 'sallye', phone : '010-1111-2222'}
+            ]
+        }
+
+        // cafe객체 안쪽에 있는 americano 값을 콘솔창에 출력
+        console.log(cafe.menu["drink-coffee"][0]);
+        
+        // 가게직원중 sally 직원의 전화번호 출력
+        console.log(cafe.employee[1].phone);
+
+        //가게 직원중 tom 직원의 전화번호를 출력
+        console.log(cafe.employee[0]().phone);
+
+    </script>
+    
+</body>
+</html>

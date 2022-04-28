@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>리마트 장바구니</title>
+    <script>
+        let bag = [];
+
+        window.onload =function(){
+            let list = document.getElementById("list");
+            list.innerHTML = bag;
+
+            document.getElementById("btnPush").onclick=function(){
+                let txtPush = document.getElementById("txtPush");
+                bag.push(txtPush.value);
+                list.innerHTML = bag;
+                txtPush.value = "";
+                console.log(bag);
+            }
+            document.getElementById("btnDelete").onclick=function(){
+                let txtDelete = document.getElementById("txtDelete");
+                
+                for(let i = 0; i <bag.length; i++){
+                    if(bag[i] === txtDelete.value){
+                        bag.splice(i,1);
+                        i--;
+                    }
+                }
+                list.innerHTML = bag;
+                txtDelete.value = "";
+                console.log(bag.length);
+
+/*
+                bag = bag.filter(function(item){
+                    return item != txtDelete.value
+                });
+                list.innerHTML = bag;
+                txtDelete.value = "";
+                console.log(bag);
+*/
+
+
+            }
+
+        }
+
+
+    </script>
+</head>
+<body>
+    <div>
+        <fieldset>
+            <legend>
+                리마트 쇼핑 장바구니
+            </legend>
+            <div id="list"></div>
+        </fieldset>
+    </div>
+    <input type="text" id="txtPush" placeholder="추가할 아이템을 입력하세요.">
+    <button type="button" id="btnPush">추가하기</button><br>
+
+    <input type="text" id="txtDelete" placeholder="삭제할 아이템을 입력하세요.">
+    <button type="button" id="btnDelete">삭제하기</button>
+</body>
+</html>
