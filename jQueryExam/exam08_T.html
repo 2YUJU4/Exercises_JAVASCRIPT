@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <script>
+        $(document).ready(function(){
+            $("#btnAdd").on("click",function(){
+                let dynamicFile = "<div><input type='file'>"
+                    +"<button class='deleteBtn'>삭제</button></div>"
+                    //id는 고유값, 다른 버튼이 생성될 수 있기때문이 class 부여
+
+            //요소 추가
+            $(".contents").after(dynamicFile);
+            })
+
+            $(document).on("click",".deleteBtn",function(e){
+                $(e.target).parent("div").remove();
+            })
+
+
+        })
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="contents">
+    <span>파일추가</span>
+    <button id="btnAdd">파일추가</button>
+        </div>
+    </div>
+    
+</body>
+</html>

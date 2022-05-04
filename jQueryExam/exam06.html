@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <title>Exam06</title>
+    <style>
+        div{
+            width: 500px;
+            height: 500px;
+            border: 1px solid black;
+        }
+        .box{
+            overflow:auto;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <button id="upBtn">위로추가하기</button>
+    <button id="downBtn">아래로추가하기</button>
+
+    <script>
+        let count = 0;
+        
+        $("#upBtn").on("click",function(){
+            count+=1;
+            let message = "Contents Message Here : "+count+"<br>";
+            $(".box").prepend(message);
+            $(".box").scrollTop(0);
+        });
+        $("#downBtn").on("click",function(){
+            count+=1;
+            let message = "Contents Message Here : "+count+"<br>";
+            $(".box").append(message);
+            $(".box").scrollTop($(document).height());
+        });
+
+    </script>
+</body>
+</html>

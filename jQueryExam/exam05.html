@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <title>Exam05</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            border: 1px dotted grey ;
+        }
+    </style>
+</head>
+<body>
+    <!-- div은 class /  id 없음
+         button을 클릭할 때 마다 div가 랜덤한 배경색으로 바뀜
+
+    -->
+    <div></div>
+    <button class="btnCls">1div</button>
+    <div></div>
+    <button class="btnCls">2div</button>
+    <div></div>
+    <button class="btnCls">3div</button>
+    <div></div>
+    <button class="btnCls">4div</button>
+
+    <script>
+        let colors = [
+            "orange"
+            ,"red"
+            ,"blue"
+            ,"green"
+            ,"black"
+            ,"yellow"
+        ]
+
+        //랜덤 수
+        //0~max값 : Math.random() * max값
+        //Math.floor(인자) : 인자를 넘기면 그 수를 정수로 만들어 주는 함수
+        //Math.floor(Math.random()*max값);
+
+        $(".btnCls").on("click",function(){
+           $(this).prev().css("background-color",colors[getRanNum()]);
+
+        });
+
+        function getRanNum(){
+            return Math.floor(Math.random()*5);
+        }
+    </script>
+</body>
+</html>

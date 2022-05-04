@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <title>Exam08</title>
+    <style>
+        *{box-sizing: border-box;}
+        .container{
+            border: 1px dotted black;
+        }
+    </style>
+    <script>
+        
+
+        $(document).ready(function(){
+            $(".container button").on("click",function(){
+                $(".contents").append("<div id='deleteid'><input type='file'>"
+                    +"<button id='deleteBtn' style='background-color:red; color:white;'>-</button></div>");
+            });
+            $(".container").on("click","#deleteBtn",function(e){
+-
+                    $(e.target).parents("#deleteid").remove();
+
+
+                })
+        
+        
+        })
+
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="contents">
+    <span>파일추가</span>
+    <button>파일추가</button>
+        </div>
+    </div>
+</body>
+</html>

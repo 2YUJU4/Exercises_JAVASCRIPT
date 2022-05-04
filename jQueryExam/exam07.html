@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <title>Top Scrolllll</title>
+    <style>
+        .container{
+            height: 2000px;
+        }
+        #scrollTop{
+            position: fixed;
+            right: 10px; /*오른쪽에서 10px만 떨어져라*/
+            bottom: 10px; /*밑에서 10px만 떨어져라*/
+            width: 70px;
+            height: 70px;
+        }
+        #scrollTop > img{
+            width: 100%;
+            cursor: pointer;
+        }
+    </style>
+        <script>
+            //widow객체를 기준 (페이지 자체를 기준)
+            $(document).ready(function(){
+                $("#scrollTop").on("click",function(){
+                    //페이지를 기준으로 스크롤 상단으로 올려주기
+                    $(window).scrollTop(0);
+
+                })
+            })
+
+        </script>
+</head>
+<body>
+    <div class="container">
+        <div id="scrollTop">
+            <img src="/images/goTop.png">
+        </div>
+    </div>
+
+</body>
+</html>
